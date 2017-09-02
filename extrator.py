@@ -1,5 +1,6 @@
 import re
 import os
+
 def get_words(words):
     ret = []
     pattern = re.compile("[A-Za-z0-9\']+")
@@ -65,15 +66,11 @@ if __name__ == "__main__":
             if file[0] == '.':
                 continue
             # convert pdf into a text list
-            print root + file
+            print(root + file)
             doc = pdf_to_text(root + file)
 
             text = find_text(doc)
             # write the result
             with open("./results/extract_" + file + '.txt', 'w') as f:
                 f.write('\n'.join(text))
-
                 # test("2011-03-21 (DBS VICKERS SECURITIES LIMI) (HK) BJ Jingkelong - A-share listing helps expansion - BUY.17385365.pdf")
-
-
-
